@@ -1,0 +1,146 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [29979] using StatReload
+INFO:     Started server process [30067]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51494 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60898 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60906 - "POST /admin/claims/REC-E6D23AA8EE1E/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60908 - "GET /admin/claims?status_filter=recovered HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52058 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52074 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41564 - "POST /claimback/user/scam-report HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:41572 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41584 - "POST /admin/claims//review HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41588 - "GET /admin/claims?status_filter=rejected HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48410 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48414 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32996 - "GET /dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32996 - "GET /user/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33000 - "GET /investments/plans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33000 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33000 - "GET /user/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /investments/plans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /investments/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /profits HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /loans/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /profits HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /investments/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /user/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /user/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /loans/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /admin-panel HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /admin/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /admin/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /admin/kyc?status_filter=pending HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54546 - "GET /loans/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38202 - "GET /claimback/stats HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3/dist-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/fastapi/applications.py", line 1133, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/lib/python3/dist-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/lib/python3/dist-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/lib/python3/dist-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 123, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 109, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 409, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 257, in serialize_response
+    return field.serialize(
+           ~~~~~~~~~~~~~~~^
+        value,
+        ^^^^^^
+    ...<5 lines>...
+        exclude_none=exclude_none,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3/dist-packages/fastapi/_compat.py", line 166, in serialize
+    return self._type_adapter.dump_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        value,
+        ^^^^^^
+    ...<6 lines>...
+        exclude_none=exclude_none,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3/dist-packages/pydantic/type_adapter.py", line 605, in dump_python
+    return self.serializer.to_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        instance,
+        ^^^^^^^^^
+    ...<12 lines>...
+        context=context,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'sqlalchemy.engine.row.Row'>
+INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=pending&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=under_review&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=in_progress&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=recovered&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "GET /claimback/claims/REC-E6D23AA8EE1E HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=in_progress&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=under_review&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=pending&page=1&per_page=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33592 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33592 - "GET /user/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47738 - "GET /user/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47738 - "GET /user/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39298 - "GET /investments/plans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39298 - "GET /loans/my HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39298 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39298 - "GET /profits HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30067]
+INFO:     Stopping reloader process [29979]

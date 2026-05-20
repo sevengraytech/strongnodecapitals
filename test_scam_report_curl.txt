@@ -1,0 +1,15 @@
+Test curl command to verify /user/scam-report endpoint:
+
+curl -X POST "http://localhost:8000/user/scam-report" \
+  -H "Authorization: Bearer DUMMY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "test@example.com",
+    "mobile": "+1234567890",
+    "country": "US",
+    "scam_type": "crypto-investment",
+    "amount_invested": 5000,
+    "case_description": "This is a detailed test case description that exceeds 50 characters to pass validation requirements for the scam report form submission endpoint testing. The platform was fake and I lost money."
+  }'

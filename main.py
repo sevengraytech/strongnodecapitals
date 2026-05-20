@@ -9,10 +9,43 @@ from backend.routers import auth, user, transactions, investments, profits, loan
 import os
 import random
 import string
+from datetime import datetime
 
 
 
 Base.metadata.create_all(bind=engine)
+
+# ── Auto-migrate: add any columns the model defines that the DB doesn't yet have ──
+def _run_migrations():
+    """
+    SQLite doesn't support ALTER TABLE ... ADD COLUMN IF NOT EXISTS, so we inspect
+    the live schema and add any columns that the ORM model defines but the DB lacks.
+    This is safe to run on every startup — it skips columns that already exist.
+    """
+    import sqlite3 as _sqlite3
+    db_path = engine.url.database  # e.g. "./cryptovault.db"
+    conn = _sqlite3.connect(db_path)
+    cur = conn.cursor()
+
+    # Map of table → list of (column_name, column_definition)
+    migrations = {
+        "users": [
+            ("registration_completed", "BOOLEAN NOT NULL DEFAULT 0"),
+        ],
+    }
+
+    for table, columns in migrations.items():
+        cur.execute(f"PRAGMA table_info({table})")
+        existing = {row[1] for row in cur.fetchall()}
+        for col_name, col_def in columns:
+            if col_name not in existing:
+                cur.execute(f"ALTER TABLE {table} ADD COLUMN {col_name} {col_def}")
+                print(f"✅ Migration: added {table}.{col_name}")
+
+    conn.commit()
+    conn.close()
+
+_run_migrations()
 
 app = FastAPI(title="StrongNodeCapital API", version="2.0.0", docs_url="/docs")
 

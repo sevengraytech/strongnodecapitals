@@ -1,146 +1,69 @@
 nohup: ignoring input
-INFO:     Will watch for changes in these directories: ['/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy']
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [29979] using StatReload
-INFO:     Started server process [30067]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-INFO:     127.0.0.1:51494 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:51508 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60898 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60906 - "POST /admin/claims/REC-E6D23AA8EE1E/review HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60908 - "GET /admin/claims?status_filter=recovered HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52058 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52074 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
-INFO:     127.0.0.1:41564 - "POST /claimback/user/scam-report HTTP/1.1" 401 Unauthorized
-INFO:     127.0.0.1:41572 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:41584 - "POST /admin/claims//review HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:41588 - "GET /admin/claims?status_filter=rejected HTTP/1.1" 200 OK
-INFO:     127.0.0.1:48410 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:48414 - "GET /admin/claims?status_filter=all HTTP/1.1" 200 OK
-INFO:     127.0.0.1:32996 - "GET /dashboard HTTP/1.1" 200 OK
-INFO:     127.0.0.1:32996 - "GET /user/overview HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33000 - "GET /investments/plans HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33000 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33000 - "GET /user/overview HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /investments/plans HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /investments/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /profits HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /loans/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /profits HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /investments/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /user/me HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /user/overview HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /loans/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /admin-panel HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /admin/stats HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /admin/stats HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39286 - "GET /admin/kyc?status_filter=pending HTTP/1.1" 200 OK
-INFO:     127.0.0.1:54546 - "GET /loans/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38202 - "GET /claimback/stats HTTP/1.1" 500 Internal Server Error
-ERROR:    Exception in ASGI application
+INFO:     Will watch for changes in these directories: ['/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals']
 Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        self.scope, self.receive, self.send
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/click/core.py", line 1524, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/click/core.py", line 1445, in main
+    rv = self.invoke(ctx)
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/click/core.py", line 1308, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/click/core.py", line 877, in invoke
+    return callback(*args, **kwargs)
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 441, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<48 lines>...
+        reset_contextvars=reset_contextvars,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     )
     ^
-  File "/usr/lib/python3/dist-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/fastapi/applications.py", line 1133, in __call__
-    await super().__call__(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/applications.py", line 107, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/middleware/errors.py", line 186, in __call__
-    raise exc
-  File "/usr/lib/python3/dist-packages/starlette/middleware/errors.py", line 164, in __call__
-    await self.app(scope, receive, _send)
-  File "/usr/lib/python3/dist-packages/starlette/middleware/cors.py", line 85, in __call__
-    await self.app(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/middleware/exceptions.py", line 63, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/usr/lib/python3/dist-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
-    await self.app(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 716, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 736, in app
-    await route.handle(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/routing.py", line 290, in handle
-    await self.app(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 123, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/usr/lib/python3/dist-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 109, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 409, in app
-    content = await serialize_response(
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<9 lines>...
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/uvicorn/main.py", line 609, in run
+    config.load_app()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/uvicorn/config.py", line 415, in load_app
+    return import_from_string(self.app)
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/main.py", line 5, in <module>
+    from backend.core.database import engine, SessionLocal, Base
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/backend/core/database.py", line 1, in <module>
+    from sqlalchemy import create_engine
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/__init__.py", line 13, in <module>
+    from .engine import AdaptedConnection as AdaptedConnection
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/engine/__init__.py", line 18, in <module>
+    from . import events as events
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/engine/events.py", line 19, in <module>
+    from .base import Connection
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 30, in <module>
+    from .interfaces import BindTyping
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/engine/interfaces.py", line 38, in <module>
+    from ..sql.compiler import Compiled as Compiled
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/sql/__init__.py", line 14, in <module>
+    from .compiler import COLLECT_CARTESIAN_PRODUCTS as COLLECT_CARTESIAN_PRODUCTS
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py", line 615, in <module>
+    class InsertmanyvaluesSentinelOpts(FastIntFlag):
+    ...<14 lines>...
+        RENDER_SELECT_COL_CASTS = 64
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 1663, in __init__
+    sym = symbol(k, canonical=v)
+  File "/home/spider/Documents/website/strongnodecapitalinvestment_orignal_copy/sttrongnodecapitals/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 1635, in __new__
+    raise TypeError(
+    ...<2 lines>...
     )
-    ^
-  File "/usr/lib/python3/dist-packages/fastapi/routing.py", line 257, in serialize_response
-    return field.serialize(
-           ~~~~~~~~~~~~~~~^
-        value,
-        ^^^^^^
-    ...<5 lines>...
-        exclude_none=exclude_none,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/usr/lib/python3/dist-packages/fastapi/_compat.py", line 166, in serialize
-    return self._type_adapter.dump_python(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        value,
-        ^^^^^^
-    ...<6 lines>...
-        exclude_none=exclude_none,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/usr/lib/python3/dist-packages/pydantic/type_adapter.py", line 605, in dump_python
-    return self.serializer.to_python(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^
-        instance,
-        ^^^^^^^^^
-    ...<12 lines>...
-        context=context,
-        ^^^^^^^^^^^^^^^^
-    )
-    ^
-pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'sqlalchemy.engine.row.Row'>
-INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=pending&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=under_review&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=in_progress&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38210 - "GET /admin/claims?status_filter=recovered&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38210 - "GET /claimback/claims/REC-E6D23AA8EE1E HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=in_progress&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=under_review&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33578 - "GET /admin/claims?status_filter=pending&page=1&per_page=20 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33592 - "POST /auth/login HTTP/1.1" 200 OK
-INFO:     127.0.0.1:33592 - "GET /user/overview HTTP/1.1" 200 OK
-INFO:     127.0.0.1:47738 - "GET /user/overview HTTP/1.1" 200 OK
-INFO:     127.0.0.1:47738 - "GET /user/me HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39298 - "GET /investments/plans HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39298 - "GET /loans/my HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39298 - "GET /transactions?page=1&per_page=10 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:39298 - "GET /profits HTTP/1.1" 200 OK
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:     Application shutdown complete.
-INFO:     Finished server process [30067]
-INFO:     Stopping reloader process [29979]
+TypeError: Can't replace canonical symbol for '__firstlineno__' with new int value 615

@@ -59,7 +59,10 @@ app.include_router(chatbot.router)
 
 
 frontend_dir = os.path.join(os.path.dirname(__file__), "frontend")
+uploads_dir = os.path.join(frontend_dir, "uploads")
+os.makedirs(uploads_dir, exist_ok=True)
 
+app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
 
 @app.get("/")

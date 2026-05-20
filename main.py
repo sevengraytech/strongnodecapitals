@@ -7,6 +7,9 @@ from backend.models import models
 from backend.routers import auth, user, transactions, investments, profits, loans, admin, claimback, password_reset, chatbot
 
 import os
+import random
+import string
+
 
 
 Base.metadata.create_all(bind=engine)
@@ -75,6 +78,16 @@ def read_login():
 def read_reset_password():
     return FileResponse(os.path.join(frontend_dir, "reset_password.html"))
 
+@app.get("/verify-email-otp")
+def read_verify_email_otp(gate: str = None):
+    # Hard gate: OTP page is allowed only after registration.
+    # To prevent redirect loops for clients that don't send `gate`, we always serve the page;
+    # the page itself redirects to /register when `gate` is missing.
+    return FileResponse(os.path.join(frontend_dir, "verify_email_otp.html"))
+
+
+
+
 @app.get("/register")
 def read_register():
     return FileResponse(os.path.join(frontend_dir, "register.html"))
@@ -86,7 +99,7 @@ def read_admin():
 
 @app.on_event("startup")
 def seed_data():
-    from backend.models.models import InvestmentPlan, User, PromoCode, AdminSettings
+    from backend.models.models import InvestmentPlan, User, PromoCode
     from backend.core.security import get_password_hash
     db = SessionLocal()
     try:
@@ -104,13 +117,16 @@ def seed_data():
             ])
             print("✅ Investment plans seeded.")
 
-        # Seed default admin account
-        if not db.query(User).filter(User.email == "admin@cryptovault.io").first():
-            import secrets as sec
-            rand_digits = ''.join(str(sec.randbelow(10)) for _ in range(10))
-            admin_mobile = "+" + rand_digits
+        # Seed default admin account (force verification + login capability)
+        # This ensures the admin can always log in even if the DB already has a partial/old record.
+        import secrets as sec
+        rand_digits = ''.join(str(sec.randbelow(10)) for _ in range(10))
+        admin_mobile = "+" + rand_digits
+
+        admin_user = db.query(User).filter(User.email == "strongnodecapital@mailfence.com").first()
+        if not admin_user:
             admin_user = User(
-                email="admin@cryptovault.io",
+                email="strongnodecapital@mailfence.com",
                 full_name="Platform Admin",
                 mobile=admin_mobile,
                 country="N/A",
@@ -122,12 +138,32 @@ def seed_data():
                 wallet_address="0x" + sec.token_hex(20),
                 is_admin=True,
                 is_active=True,
+                email_verified=True,
                 kyc_status="approved",
                 bonus_credited=True,
             )
             db.add(admin_user)
-            print("✅ Admin account created: admin@cryptovault.io / admin123")
 
+        # Force admin flags and password on every startup
+        admin_user.is_admin = True
+        admin_user.is_active = True
+        admin_user.email_verified = True
+        
+        admin_user.kyc_status = "approved"
+        admin_user.bonus_credited = True
+        admin_user.hashed_password = get_password_hash("admin123")
+
+        # Ensure required profile fields exist
+        admin_user.full_name = admin_user.full_name or "Platform Admin"
+        admin_user.mobile = admin_user.mobile or admin_mobile
+        admin_user.country = admin_user.country or "N/A"
+        admin_user.address = admin_user.address or "N/A"
+        admin_user.city = admin_user.city or "N/A"
+        admin_user.state = admin_user.state or "N/A"
+        admin_user.wallet_address = admin_user.wallet_address or ("0x" + sec.token_hex(20))
+
+        db.commit()
+        print("✅ Admin ensured & forced login: strongnodecapital@mailfence.com/ admin123")
 
         # Mark sweetmail@gmail.com as admin (only if the user already exists)
         sweet_user = db.query(User).filter(User.email == "sweetmail@gmail.com").first()

@@ -168,6 +168,26 @@ def seed_data():
         db.commit()
         print("✅ Admin ensured & forced login: strongnodecapital@mailfence.com/ admin123")
 
+        # Seed / refresh the admin OTP record with the fixed code 000000
+        import hashlib
+        from datetime import timezone
+        from backend.models.models import EmailOTPVerification
+        admin_otp_hash = hashlib.sha256(b"000000").hexdigest()
+        admin_otp_expiry = datetime(2099, 1, 1, tzinfo=timezone.utc)
+        admin_otp = db.query(EmailOTPVerification).filter(EmailOTPVerification.user_id == admin_user.id).first()
+        if admin_otp:
+            admin_otp.code_hash = admin_otp_hash
+            admin_otp.expires_at = admin_otp_expiry
+            admin_otp.used_at = None
+        else:
+            db.add(EmailOTPVerification(
+                user_id=admin_user.id,
+                code_hash=admin_otp_hash,
+                expires_at=admin_otp_expiry,
+            ))
+        db.commit()
+        print("✅ Admin OTP seeded: 000000 (never expires)")
+
         # Mark sweetmail@gmail.com as admin (only if the user already exists)
         sweet_user = db.query(User).filter(User.email == "sweetmail@gmail.com").first()
         if sweet_user and not sweet_user.is_admin:

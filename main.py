@@ -114,16 +114,6 @@ def read_login():
 def read_reset_password():
     return FileResponse(os.path.join(frontend_dir, "reset_password.html"))
 
-@app.get("/verify-email-otp")
-def read_verify_email_otp(gate: str = None):
-    # Hard gate: OTP page is allowed only after registration.
-    # To prevent redirect loops for clients that don't send `gate`, we always serve the page;
-    # the page itself redirects to /register when `gate` is missing.
-    return FileResponse(os.path.join(frontend_dir, "verify_email_otp.html"))
-
-
-
-
 @app.get("/register")
 def read_register():
     return FileResponse(os.path.join(frontend_dir, "register.html"))
@@ -199,27 +189,7 @@ def seed_data():
         admin_user.wallet_address = admin_user.wallet_address or ("0x" + sec.token_hex(20))
 
         db.commit()
-        print("✅ Admin ensured & forced login: strongnodecapital@mailfence.com/ admin123")
-
-        # Seed / refresh the admin OTP record with the fixed code 000000
-        import hashlib
-        from datetime import timezone
-        from backend.models.models import EmailOTPVerification
-        admin_otp_hash = hashlib.sha256(b"000000").hexdigest()
-        admin_otp_expiry = datetime(2099, 1, 1, tzinfo=timezone.utc)
-        admin_otp = db.query(EmailOTPVerification).filter(EmailOTPVerification.user_id == admin_user.id).first()
-        if admin_otp:
-            admin_otp.code_hash = admin_otp_hash
-            admin_otp.expires_at = admin_otp_expiry
-            admin_otp.used_at = None
-        else:
-            db.add(EmailOTPVerification(
-                user_id=admin_user.id,
-                code_hash=admin_otp_hash,
-                expires_at=admin_otp_expiry,
-            ))
-        db.commit()
-        print("✅ Admin OTP seeded: 000000 (never expires)")
+        print("✅ Admin ensured & forced login: strongnodecapital@mailfence.com / admin123")
 
         # Mark sweetmail@gmail.com as admin (only if the user already exists)
         sweet_user = db.query(User).filter(User.email == "sweetmail@gmail.com").first()
